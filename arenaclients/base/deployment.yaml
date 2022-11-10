@@ -39,7 +39,6 @@ spec:
         - mountPath: /root/aiarena-client/config.py
           name: config
           subPath: config.py
-      nodeName: rancher
       restartPolicy: Always
       schedulerName: default-scheduler
       securityContext: {}
