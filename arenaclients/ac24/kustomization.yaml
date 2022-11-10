@@ -4,4 +4,46 @@ kind: Kustomization
 bases:
 - ../base
 
+patches:
+- patch: |-
+    - op: replace
+      path: /metadata/name
+      value: ac24
+  target:
+    kind: Deployment
+    name: .*
+  
+- patch: |-
+    - op: add
+      path: "/spec/template/spec/containers/0/env/-"
+      value:
+        name: ARENA_CLIENT_ID
+        value: "24"
+  target:
+    kind: Deployment
+    namespace: arenaclients
+    name: .*
+
+- patch: |-
+    - op: add
+      path: "/spec/template/spec/containers/0/env/-"
+      value:
+        name: API_TOKEN
+        valueFrom:
+          secretKeyRef:
+            key: ac24
+            name: arenaclient-api-keys
+            optional: false
+  target:
+    kind: Deployment
+    namespace: arenaclients
+    name: .*
+
+  
 namespace: arenaclients
+metadata:
+  name: ac24
+
+commonLabels:
+  app: ac24
+
