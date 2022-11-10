@@ -18,7 +18,7 @@ patches:
       path: "/spec/template/spec/containers/0/env/-"
       value:
         name: ARENA_CLIENT_ID
-        value: 1
+        value: "1"
   target:
     kind: Deployment
     namespace: arenaclients
@@ -31,7 +31,7 @@ patches:
         name: API_TOKEN
         valueFrom:
           secretKeyRef:
-            key: 1
+            key: ac1
             name: arenaclient-api-keys
             optional: false
   target:
