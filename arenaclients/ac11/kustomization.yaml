@@ -14,11 +14,11 @@ patches:
     name: .*
   
 - patch: |-
-    - op: add
-      path: "/spec/template/spec/containers/0/env/-"
+    - op: replace
+      path: "/spec/template/spec/containers/0/env"
       value:
-        name: ARENA_CLIENT_ID
-        value: "11"
+        - name: ARENA_CLIENT_ID
+          value: "11"
   target:
     kind: Deployment
     namespace: arenaclients

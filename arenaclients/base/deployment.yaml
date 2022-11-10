@@ -2,21 +2,21 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: arenaclients
-  name: blahblah
+  name: placeholder
   labels:
-    app: blahblah
+    app: placeholder
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
   selector:
     matchLabels:
-      app: blahblah
+      app: placeholder
   strategy:
     type: Recreate
   template:
     metadata:
         labels:
-          app: blahblah
+          app: placeholder
     spec:
       containers:
       - env:
@@ -24,7 +24,7 @@ spec:
           value: PLACEHOLDER
         image: aiarena/arenaclient
         imagePullPolicy: IfNotPresent
-        name: blahblah
+        name: arenaclient
         securityContext:
           allowPrivilegeEscalation: false
           capabilities: {}
