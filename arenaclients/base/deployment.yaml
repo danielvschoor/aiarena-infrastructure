@@ -1,31 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ac1
   namespace: arenaclients
+  name: blahblah
+  labels:
+    app: blahblah
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
   selector:
+    matchLabels:
+      app: blahblah
   strategy:
     type: Recreate
   template:
     metadata:
+        labels:
+          app: blahblah
     spec:
       containers:
       - env:
-        - name: ARENA_CLIENT_ID
-          value: ac1
-        - name: API_TOKEN
-          valueFrom:
-            secretKeyRef:
-              key: ac1
-              name: arenaclient-api-keys
-              optional: false
+        - name: PLACEHOLDER
+          value: PLACEHOLDER
         image: aiarena/arenaclient
         imagePullPolicy: IfNotPresent
-        name: ac1
-        resources: {}
+        name: blahblah
         securityContext:
           allowPrivilegeEscalation: false
           capabilities: {}
@@ -40,10 +39,6 @@ spec:
         - mountPath: /root/aiarena-client/config.py
           name: config
           subPath: config.py
-      dnsPolicy: ClusterFirst
-      hostAliases:
-      - hostnames:
-        - aiarena.net
       nodeName: rancher
       restartPolicy: Always
       schedulerName: default-scheduler
@@ -58,4 +53,3 @@ spec:
           name: arenaclient-production-config
           optional: false
         name: config
-
