@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: arenaclients-root
+  name: arenaclients-master
   namespace: arenaclients
   finalizers:
   - resources-finalizer.argocd.argoproj.io
@@ -9,7 +9,7 @@ spec:
   destination:
     namespace: default
     name: in-cluster
-  project: default
+  project: arenaclients
   source:
     path: apps
     repoURL: 'https://github.com/danielvschoor/aiarena-infrastructure'

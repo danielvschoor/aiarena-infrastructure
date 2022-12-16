@@ -6,7 +6,7 @@ metadata:
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
-  project: default
+  project: arenaclients
   source:
     repoURL: 'https://github.com/danielvschoor/aiarena-infrastructure'
     path: arenaclients/ac23
