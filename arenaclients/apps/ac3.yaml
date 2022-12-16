@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: ac3
-  namespace: arenaclients
+  namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
